@@ -1,1 +1,1 @@
-console.log("Dev Event Manager initialized");
+console.log("Dev Event Manager initialized")

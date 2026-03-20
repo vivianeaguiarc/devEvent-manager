@@ -8,7 +8,7 @@ Este projeto foi desenvolvido com foco em **boas práticas de engenharia
 de software, arquitetura backend e qualidade de código**, simulando um
 ambiente de desenvolvimento profissional.
 
-------------------------------------------------------------------------
+---
 
 # 📸 Preview
 
@@ -17,42 +17,42 @@ integrada a uma API REST robusta.
 
 Principais fluxos da aplicação:
 
--   📅 criação de eventos\
--   📝 inscrição em eventos\
--   👥 gerenciamento de participantes\
--   ✅ check‑in no evento
+- 📅 criação de eventos\
+- 📝 inscrição em eventos\
+- 👥 gerenciamento de participantes\
+- ✅ check‑in no evento
 
-------------------------------------------------------------------------
+---
 
 # 🧰 Tecnologias Utilizadas
 
 ## ⚙️ Backend
 
--   Node.js
--   TypeScript
--   Fastify
--   Prisma ORM
--   PostgreSQL
--   Zod (validação)
--   Docker
+- Node.js
+- TypeScript
+- Fastify
+- Prisma ORM
+- PostgreSQL
+- Zod (validação)
+- Docker
 
 ## 🎨 Frontend
 
--   Next.js
--   React
--   TailwindCSS
--   React Hook Form
--   Zod
+- Next.js
+- React
+- TailwindCSS
+- React Hook Form
+- Zod
 
 ## 🧹 Qualidade de Código
 
--   ESLint
--   Prettier
--   commitlint
--   Husky (Git hooks)
--   eslint-plugin-simple-import-sort
+- ESLint
+- Prettier
+- commitlint
+- Husky (Git hooks)
+- eslint-plugin-simple-import-sort
 
-------------------------------------------------------------------------
+---
 
 # 🏗️ Arquitetura do Projeto
 
@@ -88,52 +88,52 @@ Validações de dados utilizando Zod.
 
 Essa estrutura facilita:
 
--   manutenção
--   escalabilidade
--   testes
+- manutenção
+- escalabilidade
+- testes
 
-------------------------------------------------------------------------
+---
 
 # ✨ Funcionalidades
 
 ## 👤 Usuários
 
--   criação de conta
--   autenticação
--   visualização de eventos disponíveis
+- criação de conta
+- autenticação
+- visualização de eventos disponíveis
 
 ## 🧑‍💼 Organizadores
 
--   criação de eventos
--   edição de eventos
--   visualização de participantes
+- criação de eventos
+- edição de eventos
+- visualização de participantes
 
 ## 🎟️ Participantes
 
--   inscrição em eventos
--   cancelamento de inscrição
--   check‑in no evento
+- inscrição em eventos
+- cancelamento de inscrição
+- check‑in no evento
 
-------------------------------------------------------------------------
+---
 
 # 📏 Regras de Negócio
 
 O sistema implementa regras comuns em aplicações reais:
 
--   um usuário não pode se registrar duas vezes no mesmo evento
--   eventos possuem limite de participantes
--   inscrições são bloqueadas quando o evento atinge capacidade máxima
--   check‑in só pode ser realizado no dia do evento
+- um usuário não pode se registrar duas vezes no mesmo evento
+- eventos possuem limite de participantes
+- inscrições são bloqueadas quando o evento atinge capacidade máxima
+- check‑in só pode ser realizado no dia do evento
 
-------------------------------------------------------------------------
+---
 
 # 🗄️ Modelagem do Banco de Dados
 
 Principais entidades:
 
--   User
--   Event
--   Registration
+- User
+- Event
+- Registration
 
 Relacionamentos:
 
@@ -141,18 +141,18 @@ Relacionamentos:
     User 1 --- N Registration
     Event 1 --- N Registration
 
-------------------------------------------------------------------------
+---
 
 # 🧪 Executando o Projeto
 
 ## 1️⃣ Clonar repositório
 
-``` bash
+```bash
 git clone https://github.com/seu-usuario/dev-event-manager.git
 cd dev-event-manager
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 2️⃣ Configurar variáveis de ambiente
 
@@ -160,35 +160,35 @@ Crie o arquivo `.env`
 
     DATABASE_URL="postgresql://dev:dev@localhost:5432/events"
 
-------------------------------------------------------------------------
+---
 
 ## 3️⃣ Subir banco de dados com Docker
 
-``` bash
+```bash
 docker-compose up -d
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 4️⃣ Instalar dependências
 
-``` bash
+```bash
 pnpm install
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 5️⃣ Rodar migrations
 
-``` bash
+```bash
 npx prisma migrate dev
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 6️⃣ Iniciar servidor
 
-``` bash
+```bash
 pnpm dev
 ```
 
@@ -196,7 +196,7 @@ Servidor disponível em:
 
     http://localhost:3333
 
-------------------------------------------------------------------------
+---
 
 # 🧼 Qualidade de Código
 
@@ -222,42 +222,42 @@ Exemplo de commit:
 
     feat: add event registration endpoint
 
-------------------------------------------------------------------------
+---
 
 # 🔎 Prisma Studio
 
 Para visualizar o banco:
 
-``` bash
+```bash
 npx prisma studio
 ```
 
-------------------------------------------------------------------------
+---
 
 # 🗺️ Roadmap
 
 Funcionalidades planejadas:
 
--   🔐 autenticação JWT
--   📱 geração de QR Code para check‑in
--   🧑‍💻 painel de administrador
--   🧪 testes automatizados
--   📚 documentação da API com OpenAPI
+- 🔐 autenticação JWT
+- 📱 geração de QR Code para check‑in
+- 🧑‍💻 painel de administrador
+- 🧪 testes automatizados
+- 📚 documentação da API com OpenAPI
 
-------------------------------------------------------------------------
+---
 
 # 🎯 Objetivo do Projeto
 
 Este projeto foi desenvolvido como **projeto de portfólio**, com
 objetivo de demonstrar habilidades em:
 
--   desenvolvimento backend com Node.js
--   modelagem de banco relacional
--   arquitetura de software
--   boas práticas de código
--   organização de projetos reais
+- desenvolvimento backend com Node.js
+- modelagem de banco relacional
+- arquitetura de software
+- boas práticas de código
+- organização de projetos reais
 
-------------------------------------------------------------------------
+---
 
 # 👩‍💻 Autor
 
@@ -266,20 +266,20 @@ Fullstack Developer
 
 Tecnologias principais:
 
--   Node.js
--   TypeScript
--   Next.js
--   PostgreSQL
--   Prisma
--   Docker
+- Node.js
+- TypeScript
+- Next.js
+- PostgreSQL
+- Prisma
+- Docker
 
-------------------------------------------------------------------------
+---
 
 # 📜 Licença
 
 MIT
 
-------------------------------------------------------------------------
+---
 
 💡 **Projeto criado para demonstrar habilidades de backend engineering
 em um cenário próximo de aplicações reais utilizadas em empresas.**
