@@ -5,10 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch src/index.js"
+    "dev": "node --watch src/index.js",
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "Viviane Aguiar",
   "license": "ISC",
-  "packageManager": "pnpm@10.32.1"
+  "packageManager": "pnpm@10.32.1",
+  "devDependencies": {
+    "@types/node": "25.5.0",
+    "typescript": "5.9.3"
+  }
 }
