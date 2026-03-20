@@ -1,0 +1,14 @@
+{
+  "name": "devEvent-manager",
+  "version": "1.0.0",
+  "description": "Portfolio project focused on initialization, code quality and scalable architecture.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [],
+  "author": "Viviane Aguiar",
+  "license": "ISC",
+  "packageManager": "pnpm@10.32.1"
+}
