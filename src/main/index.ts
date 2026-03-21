@@ -1,7 +1,8 @@
 import { prisma } from "../lib/prisma.js"
 
 async function bootstrap() {
-  console.log("Prisma configured successfully")
+  console.log("Database schema configured successfully")
+
   await prisma.$disconnect()
 }
 

@@ -6,3 +6,65 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum UserRole {
+  PARTICIPANT
+  ORGANIZER
+  ADMIN
+}
+
+enum RegistrationStatus {
+  CONFIRMED
+  CANCELED
+}
+
+model User {
+  id            String         @id @default(uuid())
+  name          String
+  email         String         @unique
+  password      String
+  role          UserRole       @default(PARTICIPANT)
+  createdEvents Event[]        @relation("EventOrganizer")
+  registrations Registration[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@map("users")
+}
+
+model Event {
+  id            String         @id @default(uuid())
+  title         String
+  description   String
+  slug          String         @unique
+  location      String
+  startsAt      DateTime
+  endsAt        DateTime
+  capacity      Int
+  organizerId   String
+  organizer     User           @relation("EventOrganizer", fields: [organizerId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  registrations Registration[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+
+  @@index([organizerId])
+  @@index([startsAt])
+  @@map("events")
+}
+
+model Registration {
+  id          String             @id @default(uuid())
+  userId      String
+  eventId     String
+  status      RegistrationStatus @default(CONFIRMED)
+  checkedInAt DateTime?
+  user        User               @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  event       Event              @relation(fields: [eventId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+
+  @@unique([userId, eventId])
+  @@index([eventId])
+  @@index([userId])
+  @@map("registrations")
+}
