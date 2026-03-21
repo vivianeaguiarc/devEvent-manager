@@ -1,13 +1,18 @@
-import { prisma } from "../lib/prisma.js"
+import { buildApp } from "./app.js"
 
 async function bootstrap() {
-  console.log("Database schema configured successfully")
+  const app = await buildApp()
 
-  await prisma.$disconnect()
+  await app.listen({
+    port: 3333,
+    host: "0.0.0.0",
+  })
+
+  app.log.info("HTTP server running on http://localhost:3333")
+  app.log.info("Swagger UI available on http://localhost:3333/docs")
 }
 
-bootstrap().catch(async (error) => {
+bootstrap().catch((error) => {
   console.error("Application bootstrap failed:", error)
-  await prisma.$disconnect()
   process.exit(1)
 })
