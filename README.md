@@ -1,285 +1,175 @@
-# 🚀 Dev Event Manager
+# 🚀 FSC Events
 
-Plataforma para gerenciamento de eventos voltados à comunidade de
-tecnologia, permitindo que organizadores criem eventos e desenvolvedores
-se registrem, reservem vagas e realizem check‑in.
-
-Este projeto foi desenvolvido com foco em **boas práticas de engenharia
-de software, arquitetura backend e qualidade de código**, simulando um
-ambiente de desenvolvimento profissional.
+Backend application built with Node.js and TypeScript following **Hexagonal Architecture**, focused on scalability, maintainability and clean code practices.
 
 ---
 
-# 📸 Preview
+## 🧱 Architecture
 
-Interface web para navegação de eventos e registro de participantes,
-integrada a uma API REST robusta.
+This project follows:
 
-Principais fluxos da aplicação:
-
-- 📅 criação de eventos\
-- 📝 inscrição em eventos\
-- 👥 gerenciamento de participantes\
-- ✅ check‑in no evento
+- Hexagonal Architecture (Ports & Adapters)
+- SOLID principles
+- Clean Code practices
 
 ---
 
-# 🧰 Tecnologias Utilizadas
+## 🛠️ Tech Stack
 
-## ⚙️ Backend
-
-- Node.js
+- Node.js (v24+)
 - TypeScript
-- Fastify
-- Prisma ORM
 - PostgreSQL
-- Zod (validação)
-- Docker
-
-## 🎨 Frontend
-
-- Next.js
-- React
-- TailwindCSS
-- React Hook Form
-- Zod
-
-## 🧹 Qualidade de Código
-
-- ESLint
-- Prettier
-- commitlint
-- Husky (Git hooks)
-- eslint-plugin-simple-import-sort
+- Prisma ORM
+- PNPM
+- Docker (for local/CI database)
 
 ---
 
-# 🏗️ Arquitetura do Projeto
-
-A aplicação segue uma arquitetura inspirada em **Clean Architecture**,
-separando responsabilidades entre camadas:
-
-    src
-     ├ controllers
-     ├ use-cases
-     ├ repositories
-     ├ routes
-     ├ schemas
-     ├ middlewares
-     ├ lib
-     └ server.ts
-
-### Controllers
-
-Responsáveis por receber requisições HTTP e delegar a execução para os
-casos de uso.
-
-### Use Cases
-
-Contêm a lógica de negócio da aplicação.
-
-### Repositories
-
-Abstraem o acesso ao banco de dados.
-
-### Schemas
-
-Validações de dados utilizando Zod.
-
-Essa estrutura facilita:
-
-- manutenção
-- escalabilidade
-- testes
-
----
-
-# ✨ Funcionalidades
-
-## 👤 Usuários
-
-- criação de conta
-- autenticação
-- visualização de eventos disponíveis
-
-## 🧑‍💼 Organizadores
-
-- criação de eventos
-- edição de eventos
-- visualização de participantes
-
-## 🎟️ Participantes
-
-- inscrição em eventos
-- cancelamento de inscrição
-- check‑in no evento
-
----
-
-# 📏 Regras de Negócio
-
-O sistema implementa regras comuns em aplicações reais:
-
-- um usuário não pode se registrar duas vezes no mesmo evento
-- eventos possuem limite de participantes
-- inscrições são bloqueadas quando o evento atinge capacidade máxima
-- check‑in só pode ser realizado no dia do evento
-
----
-
-# 🗄️ Modelagem do Banco de Dados
-
-Principais entidades:
-
-- User
-- Event
-- Registration
-
-Relacionamentos:
-
-    User 1 --- N Event
-    User 1 --- N Registration
-    Event 1 --- N Registration
-
----
-
-# 🧪 Executando o Projeto
-
-## 1️⃣ Clonar repositório
+## ⚙️ Setup
 
 ```bash
-git clone https://github.com/seu-usuario/dev-event-manager.git
-cd dev-event-manager
-```
-
----
-
-## 2️⃣ Configurar variáveis de ambiente
-
-Crie o arquivo `.env`
-
-    DATABASE_URL="postgresql://dev:dev@localhost:5432/events"
-
----
-
-## 3️⃣ Subir banco de dados com Docker
-
-```bash
-docker-compose up -d
-```
-
----
-
-## 4️⃣ Instalar dependências
-
-```bash
+# install dependencies
 pnpm install
-```
 
----
+# generate prisma client
+pnpm prisma:generate
 
-## 5️⃣ Rodar migrations
+# run migrations
+pnpm prisma migrate dev
 
-```bash
-npx prisma migrate dev
-```
-
----
-
-## 6️⃣ Iniciar servidor
-
-```bash
+# run project
 pnpm dev
 ```
 
-Servidor disponível em:
-
-    http://localhost:3333
-
 ---
 
-# 🧼 Qualidade de Código
-
-Este projeto utiliza ferramentas para manter consistência no código:
-
-### 🔍 ESLint
-
-Análise estática do código.
-
-### 🎨 Prettier
-
-Formatação automática.
-
-### 🪝 Husky
-
-Executa verificações antes de commits.
-
-### 📝 Commitlint
-
-Padroniza mensagens de commit.
-
-Exemplo de commit:
-
-    feat: add event registration endpoint
-
----
-
-# 🔎 Prisma Studio
-
-Para visualizar o banco:
+## 🧪 Testing
 
 ```bash
-npx prisma studio
+pnpm test
 ```
 
 ---
 
-# 🗺️ Roadmap
+## 📦 Build
 
-Funcionalidades planejadas:
-
-- 🔐 autenticação JWT
-- 📱 geração de QR Code para check‑in
-- 🧑‍💻 painel de administrador
-- 🧪 testes automatizados
-- 📚 documentação da API com OpenAPI
+```bash
+pnpm build
+```
 
 ---
 
-# 🎯 Objetivo do Projeto
+# 🔁 Continuous Integration
 
-Este projeto foi desenvolvido como **projeto de portfólio**, com
-objetivo de demonstrar habilidades em:
+![CI](https://github.com/SEU_USUARIO/SEU_REPO/actions/workflows/ci.yml/badge.svg)
 
-- desenvolvimento backend com Node.js
-- modelagem de banco relacional
-- arquitetura de software
-- boas práticas de código
-- organização de projetos reais
+This project uses GitHub Actions for automated validation on every push and pull request.
 
----
+### ✅ Pipeline validates:
 
-# 👩‍💻 Autor
+- Code formatting (Prettier)
+- Lint rules (ESLint)
+- Type checking (TypeScript)
+- Automated tests
+- Database migrations (Prisma)
+- Production build
+- Test coverage artifact upload
 
-**Viviane**\
-Fullstack Developer
+### 🐘 Database in CI
 
-Tecnologias principais:
-
-- Node.js
-- TypeScript
-- Next.js
-- PostgreSQL
-- Prisma
-- Docker
+The pipeline spins up a PostgreSQL container to simulate a real environment during tests.
 
 ---
 
-# 📜 Licença
+# 🧾 Commit Convention
 
-MIT
+This project enforces commit message standards using commitlint.
+
+### ✔️ Valid examples:
+
+```
+feat: add create event use case
+fix: correct validation error
+chore: update dependencies
+```
+
+### ❌ Invalid examples:
+
+```
+update stuff
+bug fix
+coisa nova
+```
+
+Commits are validated automatically in Pull Requests.
 
 ---
 
-💡 **Projeto criado para demonstrar habilidades de backend engineering
-em um cenário próximo de aplicações reais utilizadas em empresas.**
+# 🌿 Branch Strategy
+
+This repository follows a simplified Git Flow:
+
+```
+main       → production (protected)
+feat/*     → new features
+fix/*      → bug fixes
+```
+
+### 📌 Workflow:
+
+1. Create a branch:
+
+```bash
+git checkout -b feat/create-event
+```
+
+2. Push branch:
+
+```bash
+git push origin feat/create-event
+```
+
+3. Open Pull Request → `main`
+
+4. Wait for CI + CommitLint to pass
+
+5. Merge 🚀
+
+---
+
+# 🔒 Branch Protection
+
+The `main` branch should be protected with the following rules:
+
+- ✅ Require Pull Request before merge
+- ✅ Require CI to pass
+- ✅ Require CommitLint validation
+- ✅ Prevent direct pushes
+
+---
+
+# 📊 Code Quality
+
+This project enforces high-quality standards:
+
+- Strict TypeScript configuration
+- Linting and formatting checks
+- Automated testing
+- CI/CD validation pipeline
+
+---
+
+# 🎯 Purpose
+
+This project is part of a professional portfolio focused on:
+
+- Backend Engineering
+- Scalable Architecture
+- Production-ready pipelines
+- Real-world development practices
+
+---
+
+# 👩‍💻 Author
+
+<a href="https://www.linkedin.com/in/vivianeaguiarc/">**Viviane Aguiar Linkedin**</a>
